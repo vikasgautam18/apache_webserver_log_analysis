@@ -28,8 +28,8 @@ class JSONProcess(ssc: StreamingContext) {
 
         val sqlContext = JSONProcess.getSQLContext
         import sqlContext.implicits._
-
-        rdd.toDF().write.json(path + "/log_" + System.currentTimeMillis())
+        if(!rdd.isEmpty)
+          rdd.toDF().write.json(path + "/log_" + System.currentTimeMillis())
     })
   }
 }
