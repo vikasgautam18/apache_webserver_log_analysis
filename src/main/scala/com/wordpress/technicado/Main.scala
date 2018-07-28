@@ -12,6 +12,7 @@ object Main {
       System.exit(-1)
     }
 
+
     val ssc = StreamingContext.getOrCreate(args(1), () => createContext(args))
 
     ssc.start()

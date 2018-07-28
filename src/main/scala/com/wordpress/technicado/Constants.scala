@@ -9,4 +9,8 @@ object Constants {
   val SOCKET_HOST_NAME="socket.host.name"
   val SOCKET_PORT_NAME="socket.port.name"
 
+  val JSON_APP_DUR= "json.app.dur"
+  val JSON_CHECKPOINT_DIR= "json.checkpoint.dir"
+  val JSON_OUT_DIR = "json.out.dir"
+
 }
