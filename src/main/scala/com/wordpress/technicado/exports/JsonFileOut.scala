@@ -8,7 +8,7 @@ import com.wordpress.technicado.commons.configuration.ConfigReader
 object JsonFileOut {
 
   def main(args: Array[String]): Unit = {
-    if(args.length != 2){
+    if(args.length != 1){
       println("USAGE: spark-submit --class com.wordpresss.technicado.Main " +
         "--master local[*] spark/jars/apachewebserverloganalysis_2.11-0.1.jar hdfs://path/to/app.config")
       System.exit(-1)
@@ -17,7 +17,7 @@ object JsonFileOut {
     val sc = new SparkContext(new SparkConf)
     ConfigReader.readConfig(args(0), sc)
 
-    val ssc = StreamingContext.getOrCreate(args(0), () => createContext(sc))
+    val ssc = StreamingContext.getOrCreate(ConfigReader.getString(JSON_CHECKPOINT_DIR), () => createContext(sc))
 
     ssc.start()
     ssc.awaitTermination()
