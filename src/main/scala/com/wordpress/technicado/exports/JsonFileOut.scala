@@ -9,7 +9,7 @@ object JsonFileOut {
 
   def main(args: Array[String]): Unit = {
     if(args.length != 1){
-      println("USAGE: spark-submit --class com.wordpresss.technicado.Main " +
+      println("USAGE: spark-submit --class com.wordpress.technicado.Main " +
         "--master local[*] spark/jars/apachewebserverloganalysis_2.11-0.1.jar hdfs://path/to/app.config")
       System.exit(-1)
     }
